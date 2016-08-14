@@ -1,2 +1,10 @@
 @import '../app/common/nav/nav';
+@import '../app/common/footer/footer';
+@import '../app/components/home/home';
+@import '../app/components/about/about';
+@import '../app/components/users/users-list/users-list';
+@import '../app/components/users/user-detail/user-detail';
 
+.views{
+   min-height: 75vh;
+}

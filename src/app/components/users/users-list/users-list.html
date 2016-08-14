@@ -1,0 +1,14 @@
+<div class="users">
+     <ul class="collection with-header">
+        <li class="collection-header"><h4>Users List</h4></li>
+        <li class="collection-item" ng-repeat="user in $ctrl.usersList">
+            <div>
+                <span ng-bind="user.name"></span>
+                <a ui-sref="user-detail({id: {{user.id}} })" class="secondary-content">
+                    <i class="material-icons">send</i>
+                </a>
+             </div>
+        </li>
+      </ul>
+            
+</div>

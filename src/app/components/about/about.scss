@@ -1,0 +1,15 @@
+.about{
+    width: 55%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    height: 310px;
+    align-items: center;
+    h1{
+       font-size: 10rem;
+       .github{
+          color: #505050;
+       }
+    }
+}

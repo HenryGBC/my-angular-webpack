@@ -1,0 +1,19 @@
+<div class="user-detail">
+    <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title" ng-bind="$ctrl.user.name"></span>
+            <p>Username: <span ng-bind="$ctrl.user.username"></span></p>
+            <p>phone: <span ng-bind="$ctrl.user.phone"></span></p>
+            <p>Work: <span ng-bind="$ctrl.user.company.catchPhrase"></span></p>
+        </div>
+        <div class="card-action">
+            <a href="{{$ctrl.user.website}}">{{$ctrl.user.website}}</a>
+        </div>
+        </div>
+    </div>
+    
+    <a ui-sref="users" class="waves-effect waves-light btn">Get Users</a>
+
+</div>
+    
