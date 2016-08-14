@@ -13,6 +13,7 @@ var ENV = process.env.npm_lifecycle_event;
 
 var isProd = ENV === 'build';
 
+
 /*
 * Webpack requires a config objects to set all the defaults
 * We are returning a self invoked function that returns the 
@@ -26,7 +27,8 @@ module.exports = (function makeWebpackConfig () {
   config.entry = {
     app: './src/app/app.js'
   };
-
+  
+  
   config.output = {
     path: path.resolve(__dirname, './dist'),
     publicPath: isProd ? '/' : 'http://localhost:8080/',
@@ -43,7 +45,7 @@ module.exports = (function makeWebpackConfig () {
   config.resolve = {
     modulesDirectories: [
       'node_modules',
-      'src/public/views'
+      'src/'
     ]
   };
 
@@ -55,22 +57,27 @@ module.exports = (function makeWebpackConfig () {
       exclude: /node_modules/
     }, {
       test: /\.scss$/,
-      loaders: ['style', 'css', 'sass']
-    }, {
+      loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+    }, { 
+      test: /\.css$/, 
+      loader: 'style-loader!css-loader' 
+    },  
+    {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
       loader: 'file'
     }, {
       test: /\.html$/,
-      loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './src')) + '/!html',
+      loader: 'raw',
       exclude: /index\.html/
     }]
   };
 
   config.plugins = [];
-
+  
   config.plugins.push(
     new HtmlWebpackPlugin({
-      template: './src/public/views/index.html',
+      title: 'My Angular Webpack starter',
+      template: './src/index.html',
       inject: 'body'
     })
   );
@@ -82,14 +89,14 @@ module.exports = (function makeWebpackConfig () {
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin(),
       new CopyWebpackPlugin([{
-        from: path.resolve(__dirname, './src/public')
+        from: path.resolve(__dirname, './src')
       }], { ignore: ['*.html'] })
     );
   }
 
   // set dev server for testing options
   config.devServer = {
-    contentBase: './src/public',
+    contentBase: './src',
     stats: 'minimal'
   };
 

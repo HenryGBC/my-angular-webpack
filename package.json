@@ -4,7 +4,7 @@
   "description": "Boilerplate Webpack & angular 1.5",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && webpack --bail --progress --profile",
+    "build": "webpack -p --bail --progress --profile",
     "server": "webpack-dev-server --history-api-fallback --inline --progress",
     "start": "npm run server"
   },
@@ -25,6 +25,7 @@
     "ng-annotate-loader": "^0.1.1",
     "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.8.0",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
@@ -33,6 +34,7 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
-    "angular-ui-router": "^1.0.0-alpha.5"
+    "angular-ui-router": "^1.0.0-alpha.5",
+    "bootstrap": "^3.3.7"
   }
 }
